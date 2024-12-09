@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Boda de LasRewis</title>
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css2.css">
+</head>
+<body>
+    <header>
+        <h1>Boda de LasRewis</h1>
+    </header>
+
+    <p id="entrada">Estamos barajando la posibilidad de contratar un autobús; dependiendo de las personas que lo fuesen a utilizar; saldría desde X a las 11:00 y la vuelta sería al fin de fiesta 23:00.</p>
+
+    <!-- Menú lateral -->
+    <nav id="side-menu" class="side-menu">
+        <ul>
+            <li><a href="boda.html">Inicio</a></li>
+            <li><a href="autobus.html">Autobús</a></li>
+            <li><a href="informacion.html">Información sobre la finca y hoteles</a></li>
+        </ul>
+    </nav>
+
+    <!-- Ícono de hamburguesa -->
+    <div id="menu-icon" class="menu-icon">
+        <div class="bar"></div>
+        <div class="bar"></div>
+        <div class="bar"></div>
+    </div>
+
+    <!-- Formulario de autobús -->
+    <div class="container" id="attendance-form-container">
+        <h2>¿Quieres un autobús?</h2>
+        <form id="attendance-form" action="javascript:void(0)">
+            <select id="attendance" name="attendance" required>
+                <option value="">Selecciona una opción</option>
+                <option value="Sí">Sí</option>
+                <option value="No">No</option>
+            </select>
+            <button type="submit">Enviar</button>
+        </form>
+    </div>
+
+    <!-- Formulario de nombre -->
+    <div class="container" id="name-form-container" style="display: none;">
+        <h2>Nombre del invitado</h2>
+        <form id="name-form" action="javascript:void(0)">
+            <label for="name" id="name">Nombre del invitado</label>
+            <input type="text" id="name" name="name" required>
+            <button type="submit">Continuar</button>
+        </form>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+        const nameFormContainer = document.getElementById('name-form-container');
+        const attendanceFormContainer = document.getElementById('attendance-form-container');
+        const menuIcon = document.getElementById('menu-icon');
+        const sideMenu = document.getElementById('side-menu');
+
+        // Ocultar inicialmente el formulario de nombre y de asistencia
+        nameFormContainer.style.display = 'none';
+        attendanceFormContainer.style.display = 'block'; // Mostrar el formulario de autobús al inicio
+
+        // Manejo del envío del formulario de autobús
+        document.getElementById('attendance-form').addEventListener('submit', function(event) {
+            event.preventDefault();
+            const attendanceValue = document.getElementById('attendance').value;
+
+            if (attendanceValue === 'Sí') {
+                // Mostrar el formulario de nombre si se seleccionó "Sí"
+                nameFormContainer.style.display = 'block';
+                attendanceFormContainer.style.display = 'none'; // Ocultar el formulario de autobús
+                alert('¡Gracias por tu respuesta! Por favor, introduce tu nombre.');
+            } else {
+                // Si se seleccionó "No", ocultamos el formulario de nombre y mostramos el de autobús
+                alert('¡Gracias por tu respuesta!');
+                nameFormContainer.style.display = 'none'; // Ocultar el formulario de nombre
+                attendanceFormContainer.style.display = 'block'; // Mostrar el formulario de autobús
+            }
+            this.reset(); // Limpiar el formulario después de enviar
+        });
+
+        // Manejo del envío del formulario de nombre al presionar Enter
+        document.getElementById('name-form').addEventListener('submit', function(event) {
+            event.preventDefault();
+            alert('¡Gracias por tu nombre!');
+            this.reset(); // Limpiar el formulario después de enviar
+            nameFormContainer.style.display = 'none'; // Ocultar el formulario de nombre después de enviarlo
+
+            // Volver a mostrar el formulario de autobús después de enviar el formulario de nombre
+            attendanceFormContainer.style.display = 'block';
+        });
+
+        // Código para mostrar/ocultar el menú
+
+            menuIcon.addEventListener('click', function() {
+                sideMenu.classList.toggle('active');
+                menuIcon.classList.toggle('active');
+            });
+
+            // Ocultar el menú al hacer clic fuera de él
+            document.addEventListener('click', function(event) {
+                if (!sideMenu.contains(event.target) && event.target !== menuIcon) {
+                    sideMenu.classList.remove('active');
+                    menuIcon.classList.remove('active');
+                }
+            });
+    });
+    </script>
+</body>
+</html>

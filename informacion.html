@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Boda de LasRewis</title>
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css3.css">
+</head>
+<body>
+    <header>
+        <h1>Boda de LasRewis</h1>
+    </header>
+
+    <!-- Menú lateral -->
+    <nav id="side-menu" class="side-menu">
+        <ul>
+            <li><a href="boda.html">Inicio</a></li>
+            <li><a href="autobus.html">Autobús</a></li>
+            <li><a href="informacion.html">Información sobre la finca y hoteles</a></li>
+        </ul>
+    </nav>
+
+    <!-- Ícono de hamburguesa -->
+    <div id="menu-icon" class="menu-icon">
+        <div class="bar"></div>
+        <div class="bar"></div>
+        <div class="bar"></div>
+    </div>
+
+    <!-- Contenido principal -->
+    <section class="instructions-container">
+        <h2>Hotel</h2>
+        <p>
+            Si no os apetece volver hasta casa la noche de nuestra boda, hemos encontrado el hotel más cercano a la finca:
+            <p><strong>Hotel la Roda</strong>.</p>
+        </p>
+
+        <h3>Instrucciones para llegar a la finca</h2>
+        <p>
+            <strong>UBICACIÓN GOOGLE MAPS:</strong> 
+            <a href="https://maps.app.goo.gl/VxpcQ2HdYCE8kfYaA" target="_blank">https://maps.app.goo.gl/VxpcQ2HdYCE8kfYaA</a>
+        </p>
+        <p>
+            También se puede buscar directamente en Google Maps como: 
+            <strong>FINCA ENTREOLIVARES RECAS (TOLEDO).</strong>
+        </p>
+        <p>
+            Pedid ubicación hasta <strong>Recas, plaza España</strong>. Cuando estéis en la plaza, pedid la ubicación a la finca. 
+            <strong>Hacedlo por ese orden</strong>. No pidáis la ubicación a la finca directamente desde vuestra casa.
+        </p>
+        <p>
+            Utilizad solo <strong>Google Maps</strong>. No usar <strong>Waze</strong>!!
+        </p>
+        <p>
+            Cuando lleguéis a la entrada del camino que lleva a la casa, veréis una barrera automática. 
+        </p>
+        <p>
+            <strong>Llamad al número <a href="tel:+34636723227">636 72 32 27</a></strong> para que os abran la barrera.
+        </p>
+    </section>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const menuIcon = document.getElementById('menu-icon');
+            const sideMenu = document.getElementById('side-menu');
+
+            // Código para mostrar/ocultar el menú
+            menuIcon.addEventListener('click', function() {
+                sideMenu.classList.toggle('active');
+                menuIcon.classList.toggle('active');
+            });
+
+            // Ocultar el menú al hacer clic fuera de él
+            document.addEventListener('click', function(event) {
+                if (!sideMenu.contains(event.target) && event.target !== menuIcon) {
+                    sideMenu.classList.remove('active');
+                    menuIcon.classList.remove('active');
+                }
+            });
+        });
+    </script>
+
+    <div class="image-gallery">
+        <img src="foto1.jpeg" alt="Descripción de la imagen 1">
+        <img src="foto2.jpeg" alt="Descripción de la imagen 2">
+        <img src="foto3.jpeg" alt="Descripción de la imagen 3">
+    </div>
+
+</body>
+</html>
