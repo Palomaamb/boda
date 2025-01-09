@@ -165,63 +165,6 @@ header h1 {
 }
 
 
-/* Media queries para pantallas más pequeñas */
-@media (max-width: 768px) {
-    header {
-        font-size: 20px;
-        padding: 15px;
-    }
-
-    .container {
-        margin: 10px;
-        padding: 15px;
-    }
-
-    input, select, button {
-        font-size: 14px;
-        padding: 8px;
-    }
-
-    /* Mostrar el menú hamburguesa en móviles */
-    .menu-icon {
-        display: block;
-    }
-
-    /* Ajustar el menú lateral */
-    .side-menu {
-        width: 200px;
-    }
-
-    .side-menu ul li {
-        margin: 10px 0;
-    }
-}
-
-@media (max-width: 480px) {
-    header {
-        font-size: 18px;
-        padding: 10px;
-    }
-
-    .container {
-        margin: 5px;
-        padding: 10px;
-    }
-
-    input, select, button {
-        font-size: 12px;
-        padding: 6px;
-    }
-
-    .side-menu {
-        width: 180px;
-    }
-
-    .menu-icon .bar {
-        width: 20px;
-    }
-}
-
 
 /* Responsive styles for smaller devices */
 @media (max-width: 768px) {
