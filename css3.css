@@ -35,7 +35,7 @@ header {
 }
 
 header h1 {
-    margin: 20px 0 5px; /* Ajuste en los márgenes */
+    margin: 0;
     margin-top: 40px;
     margin-bottom: 10px; /* Reduce el margen inferior del h1 */
 }
@@ -143,6 +143,7 @@ header h1 {
     padding: 10px; /* Aumenta el espacio alrededor del texto */
 }
 
+/* Gallery */
 .image-gallery {
     display: flex;
     justify-content: space-around;
@@ -164,9 +165,7 @@ header h1 {
     cursor:pointer;
 }
 
-
-
-/* Responsive styles for smaller devices */
+/* Responsive styles for tablets and smaller screens */
 @media (max-width: 768px) {
     header {
         width: 100%; /* Asegurarte de que el header ocupe todo el ancho */
@@ -175,9 +174,18 @@ header h1 {
     }
 
     .container {
-        width: 95%; /* Haz que ocupe más espacio en pantallas pequeñas */
+        width: 95%; /* Ocupa más espacio en pantallas pequeñas */
         margin: 10px auto; /* Reduce el margen superior/inferior */
         padding: 10px; /* Ajusta el padding para dispositivos pequeños */
+    }
+
+    .instructions-container {
+        width: 95%;  /* Asegurarte de que el contenedor ocupe más espacio en pantallas pequeñas */
+    }
+
+    .image-gallery img {
+        max-width: 100%;
+        height: auto;
     }
 }
 
@@ -193,34 +201,26 @@ header h1 {
         margin: 5px auto;
         padding: 8px;
     }
-}
 
-.image-gallery {
-    display: flex;
-    justify-content: space-around;
-    gap: 15px; /* Espacio entre las imágenes */
-    flex-wrap: wrap; /* Permite que las imágenes se ajusten a varias filas si es necesario */
-    margin-top: 20px; /* Espacio superior para separar del contenido anterior */
-    flex-direction: row; /* Por defecto, las imágenes van de izquierda a derecha */
-}
+    input, select, button {
+        font-size: 12px;  /* Disminuye el tamaño del texto en inputs, selects y botones */
+        padding: 6px;      /* Aumenta el padding según el espacio disponible */
+    }
 
-.image-gallery img {
-    max-width: 100%; /* Máximo de ancho para las imágenes */
-    height: auto; /* Mantiene la proporción */
-    border-radius: 10px; /* Opcional, para dar un efecto de bordes redondeados */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Opcional, agrega una sombra sutil */
-    transition: transform 0.3s ease; /* Efecto de transición para el hover */
-}
+    .side-menu {
+        width: 180px;
+    }
 
-.image-gallery img:hover {
-    transform: scale(1.05); /* Efecto de zoom al pasar el ratón */
-    cursor:pointer;
-}
+    .menu-icon .bar {
+        width: 20px;
+    }
 
-/* Responsive images for smaller devices */
-@media (max-width: 768px) {
+    .instructions-container {
+        width: 90%;  /* Ocupa el ancho completo del móvil */
+    }
+
     .image-gallery img {
-        max-width: 100%; /* En dispositivos más pequeños, ancho completo */
-        height: auto; /* Mantiene la proporción */
+        max-width: 100%;
+        height: auto;
     }
 }

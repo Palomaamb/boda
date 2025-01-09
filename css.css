@@ -228,65 +228,6 @@ button:hover {
     color: black; /* O el color que prefieras */
     padding: 10px; /* Aumenta el espacio alrededor del texto */
 }
-
-/* Media queries para pantallas más pequeñas */
-@media (max-width: 768px) {
-    header {
-        font-size: 20px;
-        padding: 15px;
-    }
-
-    .container {
-        margin: 10px;
-        padding: 15px;
-    }
-
-    input, select, button {
-        font-size: 14px;
-        padding: 8px;
-    }
-
-    /* Mostrar el menú hamburguesa en móviles */
-    .menu-icon {
-        display: block;
-    }
-
-    /* Ajustar el menú lateral */
-    .side-menu {
-        width: 200px;
-    }
-
-    .side-menu ul li {
-        margin: 10px 0;
-    }
-}
-
-@media (max-width: 480px) {
-    header {
-        font-size: 18px;
-        padding: 10px;
-    }
-
-    .container {
-        margin: 5px;
-        padding: 10px;
-    }
-
-    input, select, button {
-        font-size: 12px;
-        padding: 6px;
-    }
-
-    .side-menu {
-        width: 180px;
-    }
-
-    .menu-icon .bar {
-        width: 20px;
-    }
-}
-
-
 /* Sección destacada con imágenes */
 .hero-section {
     position: relative;
@@ -315,4 +256,30 @@ button:hover {
     transform: scale(1.1); /* Agrandar un poco */
     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3); /* Más sombra al pasar el cursor */
 }
-  
+
+  /* Header ajuste para móviles */
+@media (max-width: 480px) {
+    header {
+        font-size: 18px;  /* Reduce el tamaño de la fuente */
+        padding: 10px;    /* Menor padding para hacer el header más compacto */
+        height: 120px;    /* Baja la altura del header */
+    }
+
+    .container {
+        margin: 5px;
+        padding: 10px;
+    }
+
+    input, select, button {
+        font-size: 12px;  /* Disminuye el tamaño del texto en inputs, selects y botones */
+        padding: 6px;      /* Aumenta el padding según el espacio disponible */
+    }
+
+    .side-menu {
+        width: 180px;
+    }
+
+    .menu-icon .bar {
+        width: 20px;
+    }
+}
