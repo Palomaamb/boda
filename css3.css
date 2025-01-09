@@ -194,3 +194,33 @@ header h1 {
         padding: 8px;
     }
 }
+
+.image-gallery {
+    display: flex;
+    justify-content: space-around;
+    gap: 15px; /* Espacio entre las imágenes */
+    flex-wrap: wrap; /* Permite que las imágenes se ajusten a varias filas si es necesario */
+    margin-top: 20px; /* Espacio superior para separar del contenido anterior */
+    flex-direction: row; /* Por defecto, las imágenes van de izquierda a derecha */
+}
+
+.image-gallery img {
+    max-width: 100%; /* Máximo de ancho para las imágenes */
+    height: auto; /* Mantiene la proporción */
+    border-radius: 10px; /* Opcional, para dar un efecto de bordes redondeados */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Opcional, agrega una sombra sutil */
+    transition: transform 0.3s ease; /* Efecto de transición para el hover */
+}
+
+.image-gallery img:hover {
+    transform: scale(1.05); /* Efecto de zoom al pasar el ratón */
+    cursor:pointer;
+}
+
+/* Responsive images for smaller devices */
+@media (max-width: 768px) {
+    .image-gallery img {
+        max-width: 100%; /* En dispositivos más pequeños, ancho completo */
+        height: auto; /* Mantiene la proporción */
+    }
+}
