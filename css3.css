@@ -165,38 +165,59 @@ header h1 {
 }
 
 
-/* Media Queries */
+/* Media queries para pantallas más pequeñas */
 @media (max-width: 768px) {
-    .container {
+    header {
+        font-size: 20px;
         padding: 15px;
+    }
+
+    .container {
         margin: 10px;
-        max-width: 90%; /* Ajusta el contenedor al 90% del ancho de la pantalla */
+        padding: 15px;
     }
 
-    button {
-        width: 100%; /* Botón ocupa el 100% de ancho en pantallas pequeñas */
+    input, select, button {
+        font-size: 14px;
+        padding: 8px;
     }
 
+    /* Mostrar el menú hamburguesa en móviles */
+    .menu-icon {
+        display: block;
+    }
+
+    /* Ajustar el menú lateral */
     .side-menu {
         width: 200px;
+    }
+
+    .side-menu ul li {
+        margin: 10px 0;
     }
 }
 
 @media (max-width: 480px) {
     header {
-        padding: 15px; /* Ajusta el padding del header */
+        font-size: 18px;
+        padding: 10px;
     }
 
     .container {
+        margin: 5px;
         padding: 10px;
-        border-radius: 5px; /* Ajusta el borde del contenedor */
     }
 
-    h2 {
-        font-size: 24px; /* Ajusta el tamaño del título */
+    input, select, button {
+        font-size: 12px;
+        padding: 6px;
     }
 
-    h3 {
-        font-size: 24px; /* Ajusta el tamaño del título */
+    .side-menu {
+        width: 180px;
+    }
+
+    .menu-icon .bar {
+        width: 20px;
     }
 }
