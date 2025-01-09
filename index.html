@@ -19,7 +19,7 @@
     <!-- Menú lateral -->
     <nav id="side-menu" class="side-menu">
         <ul>
-            <li><a href="boda.html">Inicio</a></li> <!-- Enlace a la página principal -->
+            <li><a href="index.html">Inicio</a></li> <!-- Enlace a la página principal -->
             <li><a href="autobus.html">Autobús</a></li> <!-- Enlace a la página de autobús -->
             <li><a href="informacion.html">Información sobre la finca y hoteles</a></li> <!-- Enlace a la página de información -->
         </ul>
@@ -35,8 +35,8 @@
     <!-- Formulario de nombre del invitado -->
     <div class="container" id="name-form-container">
         <h2>Información del Invitado</h2>
-        <form id="name-form" action="javascript:void(0)">
-            <label for="name" id="name">Nombre del invitado</label>
+        <form id="name-form">
+            <label for="name">Nombre del invitado</label>
             <input type="text" id="name" name="name" required>
             <button type="submit">Continuar</button>
         </form>
@@ -45,7 +45,7 @@
     <!-- Formulario de confirmación de asistencia -->
     <div class="container" id="attendance-form-container" style="display: none;">
         <h2>Confirmación de Asistencia</h2>
-        <form id="attendance-form" action="javascript:void(0)">
+        <form id="attendance-form">
             <label for="attendance">¿Vas a asistir a la boda?</label>
             <select id="attendance" name="attendance" required>
                 <option value="">Selecciona una opción</option>
@@ -56,11 +56,26 @@
         </form>
     </div>
 
+    <!-- Formulario de carne/pescado -->
+    <div class="container" id="meat-fish-form-container" style="display: none;">
+        <h2>Formulario de Carne o Pescado</h2>
+        <p id="carne">En el plato principal queremos estar seguras de acertar y que disfrutes; así que, ¿de qué eres más, de carne o de pescado?</p>
+        <form id="meat-fish-form">
+            <label for="meat-fish">¿Carne o pescado?</label>
+            <select id="meat-fish" name="meat-fish" required>
+                <option value="">Selecciona una opción</option>
+                <option value="Carne">Carne</option>
+                <option value="Pescado">Pescado</option>
+            </select>
+            <button type="submit">Enviar</button>
+        </form>
+    </div>
+
     <!-- Formulario de alergias -->
     <div class="container" id="allergy-form-container" style="display: none;">
         <h2>Formulario de Alergias</h2>
-        <p id="formulario">Haznos saber si tienes alguna alergia que debamos notificar al catering.</p>
-        <form id="allergy-form" action="/submit-form" method="POST">
+        <p id="alergia">Haznos saber si tienes alguna alergia que debamos notificar al catering.</p>
+        <form id="allergy-form">
             <div id="allergy-section">
                 <label for="allergies">¿Tienes alguna alergia alimentaria?</label>
                 <select id="allergies" name="allergies" required>
@@ -75,7 +90,7 @@
             </div>
 
             <div id="comments-section" style="display: none;">
-                <label for="comments" id="comments">Especifica tus alergias:</label>
+                <label for="comments">Especifica tus alergias:</label>
                 <textarea id="comments" name="comments" rows="4" placeholder="Escribe aquí cualquier alergia adicional..."></textarea>
             </div>
             
@@ -87,11 +102,11 @@
         document.addEventListener('DOMContentLoaded', function() {
             const nameFormContainer = document.getElementById('name-form-container');
             const attendanceFormContainer = document.getElementById('attendance-form-container');
-            const allergyFormContainer = document.getElementById('allergy-form-container');
+            const meatFishFormContainer = document.getElementById('meat-fish-form-container');
+            const allergiesFormContainer = document.getElementById('allergy-form-container');
             const attendanceSelect = document.getElementById('attendance');
-            const allergySection = document.getElementById('allergy-section');
+            const meatFishSelect = document.getElementById('meat-fish');
             const allergiesSelect = document.getElementById('allergies');
-            const commentsSection = document.getElementById('comments-section');
 
             // Mostrar el formulario de asistencia al enviar el nombre
             document.getElementById('name-form').addEventListener('submit', function(event) {
@@ -100,38 +115,42 @@
                 attendanceFormContainer.style.display = 'block';
             });
 
-            // Mostrar/ocultar el formulario de alergias si se confirma asistencia
+            // Manejar la confirmación de asistencia
             document.getElementById('attendance-form').addEventListener('submit', function(event) {
                 event.preventDefault(); // Prevenir el envío por defecto
 
                 const attendanceValue = attendanceSelect.value;
                 if (attendanceValue === 'Sí') {
                     attendanceFormContainer.style.display = 'none';
-                    allergyFormContainer.style.display = 'block';
-                    alert('¡Gracias por confirmar tu asistencia! Por favor, rellena el siguiente formulario de alergias.');
+                    meatFishFormContainer.style.display = 'block';
                 } else if (attendanceValue === 'No') {
                     alert('Lamentamos que no puedas asistir. ¡Gracias por tu respuesta!');
-                    attendanceFormContainer.style.display = 'none';
-                    allergyFormContainer.style.display = 'none'; // Ocultar el formulario de alergias
+                    window.location.href = 'index.html'; // Redirige al formulario principal
                 }
             });
 
-            // Mostrar/ocultar la sección de comentarios según la selección de alergias
-            allergiesSelect.addEventListener('change', function() {
+            // Manejar el formulario de carne o pescado
+            document.getElementById('meat-fish-form').addEventListener('submit', function(event) {
+                event.preventDefault(); // Prevenir el envío por defecto
+
+                const meatFishValue = meatFishSelect.value;
+                meatFishFormContainer.style.display = 'none';
+                allergiesFormContainer.style.display = 'block';
+            });
+
+            // Manejar alergias
+            document.getElementById('allergies').addEventListener('change', function() {
                 if (this.value === 'Otra') {
-                    commentsSection.style.display = 'block';
+                    document.getElementById('comments-section').style.display = 'block';
                 } else {
-                    commentsSection.style.display = 'none';
+                    document.getElementById('comments-section').style.display = 'none';
                 }
             });
 
-            // Manejo del envío del formulario de alergias
             document.getElementById('allergy-form').addEventListener('submit', function(event) {
                 event.preventDefault(); // Prevenir el envío por defecto
-                alert('¡Gracias por tu respuesta! Hemos recibido tus detalles de alergias.');
-                // Aquí podrías añadir código para enviar los datos a un servidor
-                this.reset(); // Limpiar el formulario después de enviar
-                commentsSection.style.display = 'none'; // Ocultar comentarios al reiniciar
+                alert('¡Gracias por tu respuesta!');
+                window.location.href = 'index.html';
             });
 
             // Código para mostrar/ocultar el menú
@@ -153,6 +172,40 @@
         });
     </script>
 
+<script>
+    // Escucha el evento de envío del formulario
+    document.getElementById('allergy-form').addEventListener('submit', function(event) {
+        // Evita el comportamiento predeterminado de recargar la página
+        event.preventDefault();
+
+        // Recolecta los datos del formulario
+        const data = {
+            nombre: document.getElementById('name').value,
+            asistencia: document.getElementById('attendance').value,
+            comida: document.getElementById('meat-fish').value,
+            alergias: document.getElementById('allergies').value,
+            comentarios: document.getElementById('comments').value || ""
+        };
+
+        // Envía los datos al servidor usando fetch
+        fetch('/guardar', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(data)
+        })
+        .then(response => response.text())
+        .then(message => {
+            // Muestra un mensaje de éxito
+            alert(message);
+            // Limpia el formulario
+            document.getElementById('allergy-form').reset();
+        })
+        .catch(error => console.error('Error:', error));
+        });
+    </script>
+
     <p id="pie">¡Arriba a la izquierda tienes un menú con más información!</p>
 </body>
-</html>
+</html>         

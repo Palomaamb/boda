@@ -27,7 +27,9 @@ body::before {
 
 #fecha,
 #lugar,
-#formulario,
+#carne,
+#alergia,
+#comments,
 #name {
     color: #3f2a0c; /* Marrón pastel */
 }
