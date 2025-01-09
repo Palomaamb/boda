@@ -221,3 +221,33 @@ header h1 {
         width: 20px;
     }
 }
+
+
+/* Responsive styles for smaller devices */
+@media (max-width: 768px) {
+    header {
+        width: 100%; /* Asegurarte de que el header ocupe todo el ancho */
+        font-size: 20px; /* Reduce el tamaño de la fuente */
+        padding: 15px; /* Reduce el padding para pantallas pequeñas */
+    }
+
+    .container {
+        width: 95%; /* Haz que ocupe más espacio en pantallas pequeñas */
+        margin: 10px auto; /* Reduce el margen superior/inferior */
+        padding: 10px; /* Ajusta el padding para dispositivos pequeños */
+    }
+}
+
+@media (max-width: 480px) {
+    header {
+        width: 100%; /* Asegurarte de que el header ocupe todo el ancho */
+        font-size: 18px; /* Aún más pequeño en dispositivos pequeños */
+        padding: 10px;
+    }
+
+    .container {
+        width: 90%; /* Ocupa el ancho completo del móvil */
+        margin: 5px auto;
+        padding: 8px;
+    }
+}
