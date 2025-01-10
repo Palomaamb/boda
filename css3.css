@@ -167,24 +167,29 @@ header h1 {
 /* Responsive styles for tablets and smaller screens */
 @media (max-width: 768px) {
     header {
-        font-size: 20px;
+        font-size: 18px;
         padding: 15px;
         height: 120px;
     }
 
     .container {
         width: 95%;
-        margin: 10px auto;
-        padding: 10px;
+        margin: 20px auto;
+        padding: 15px;
     }
 
     .instructions-container {
         width: 95%;
+        margin-left: auto;
+        margin-right: auto;
+        box-sizing: border-box;
     }
 
     .image-gallery img {
-        max-width: 100%;
         height: auto;
+        max-width: 95%; /* Mantiene las imágenes ajustadas al 95% del ancho */
+        margin-left: auto;
+        margin-right: auto;
     }
 
     input, select, button {
@@ -202,17 +207,20 @@ header h1 {
 
     .container {
         width: 90%;
-        margin: 5px auto;
-        padding: 8px;
+        margin: 15px auto;
+        padding: 10px;
     }
 
     .instructions-container {
         width: 90%;
+        margin-left: auto;
+        margin-right: auto;
     }
 
     .image-gallery img {
-        max-width: 100%;
-        height: auto;
+        max-width: 90%; /* Asegura que las fotos se ajusten al 90% del ancho */
+        margin-left: auto;
+        margin-right: auto;
     }
 
     input, select, button {

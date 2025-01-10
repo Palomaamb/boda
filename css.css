@@ -189,6 +189,8 @@ button:hover {
     left: 20px;
     cursor: pointer;
     z-index: 1000;
+    height: 50px;
+    width: 50px;
 }
 
 .menu-icon .bar {
@@ -257,7 +259,7 @@ button:hover {
     }
 
     h2 {
-        font-size: 24px; /* Ajusta el tamaño del título */
+        font-size: 18px; /* Ajusta el tamaño del título */
     }
 }
 
@@ -407,16 +409,16 @@ button:hover {
 
     header {
         padding: 10px; /* Ajusta el padding del header */
-        font-size: 28px; /* Reduce el tamaño de la fuente */
+        font-size: 18px; /* Reduce el tamaño de la fuente */
         height: auto; /* Permite que el header se ajuste dinámicamente */
     }
 
     h2 {
-        font-size: 24px; /* Reduce el tamaño del título */
+        font-size: 16px; /* Reduce el tamaño del título */
     }
 
     p {
-        font-size: 18px; /* Ajusta el tamaño del texto para dispositivos pequeños */
+        font-size: 14px; /* Ajusta el tamaño del texto para dispositivos pequeños */
     }
 }
 
@@ -427,7 +429,7 @@ button:hover {
     }
 
     header {
-        font-size: 24px; /* Ajusta el tamaño del texto en headers aún más pequeños */
+        font-size: 18px; /* Ajusta el tamaño del texto en headers aún más pequeños */
         padding: 8px;
     }
 
@@ -435,3 +437,4 @@ button:hover {
         padding: 12px; /* Ajusta el padding del botón */
     }
 }
+
