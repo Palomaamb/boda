@@ -228,6 +228,39 @@ button:hover {
     color: black; /* O el color que prefieras */
     padding: 10px; /* Aumenta el espacio alrededor del texto */
 }
+
+/* Media Queries */
+@media (max-width: 768px) {
+    .container {
+        padding: 15px;
+        margin: 10px;
+        max-width: 90%; /* Ajusta el contenedor al 90% del ancho de la pantalla */
+    }
+
+    button {
+        width: 100%; /* Botón ocupa el 100% de ancho en pantallas pequeñas */
+    }
+
+    .side-menu {
+        width: 200px;
+    }
+}
+
+@media (max-width: 480px) {
+    header {
+        padding: 15px; /* Ajusta el padding del header */
+    }
+
+    .container {
+        padding: 10px;
+        border-radius: 5px; /* Ajusta el borde del contenedor */
+    }
+
+    h2 {
+        font-size: 24px; /* Ajusta el tamaño del título */
+    }
+}
+
 /* Sección destacada con imágenes */
 .hero-section {
     position: relative;
@@ -256,30 +289,4 @@ button:hover {
     transform: scale(1.1); /* Agrandar un poco */
     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3); /* Más sombra al pasar el cursor */
 }
-
-  /* Header ajuste para móviles */
-@media (max-width: 480px) {
-    header {
-        font-size: 18px;  /* Reduce el tamaño de la fuente */
-        padding: 10px;    /* Menor padding para hacer el header más compacto */
-        height: 120px;    /* Baja la altura del header */
-    }
-
-    .container {
-        margin: 5px;
-        padding: 10px;
-    }
-
-    input, select, button {
-        font-size: 12px;  /* Disminuye el tamaño del texto en inputs, selects y botones */
-        padding: 6px;      /* Aumenta el padding según el espacio disponible */
-    }
-
-    .side-menu {
-        width: 180px;
-    }
-
-    .menu-icon .bar {
-        width: 20px;
-    }
-}
+  
